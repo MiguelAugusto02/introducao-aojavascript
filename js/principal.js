@@ -7,3 +7,6 @@ var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida nutricionista"
 
 /* IMC = massa/altura^2  */
+var paciente = document.querySelector("#primeiro-paciente");
+
+console.log(paciente);
