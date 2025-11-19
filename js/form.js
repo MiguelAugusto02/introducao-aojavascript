@@ -1,6 +1,6 @@
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
-botaoAdicionar.addEventListener("click", function(){
+botaoAdicionar.addEventListener("click", function () {
     event.preventDefault();
     var form = document.querySelector("#form-adiciona");
     //Extrai informações do paciente do form
@@ -13,10 +13,13 @@ botaoAdicionar.addEventListener("click", function(){
 
     tabela.appendChild(pacienteTr);
 
+    form.reset();
+
+
 });
 
 // Dividir em tres funções para trabalhar com tarefas menores
-function obtemPacienteDoFormulario(form){
+function obtemPacienteDoFormulario(form) {
     var paciente = {
         nome: form.nome.value,
         peso: form.peso.value,
@@ -27,7 +30,7 @@ function obtemPacienteDoFormulario(form){
     return paciente;
 }
 
-function montaTr(paciente){
+function montaTr(paciente) {
 
     var pacienteTr = document.createElement("tr");
 
@@ -48,4 +51,18 @@ function montaTr(paciente){
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
+}
+
+function montaTd() {
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
+
+    pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
+    pacienteTr.append(montaTd(paciente.nome, "info-peso"));
+    pacienteTr.append(montaTd(paciente.nome, "info-altura"));
+    pacienteTr.append(montaTd(paciente.nome, "info-gordura"));
+    pacienteTr.append(montaTd(paciente.nome, "info-imc"));
+
+    return pacienteTr;
+
 }
